@@ -1,0 +1,80 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  background-color: white;
+}
+
+.nav-link {
+  color: #ff6b01;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ff9c30;
+}
+
+h1 {
+  color: #ff6b01;
+}
+
+.btn-primary {
+  background-color: #ff6b01;
+  border-color: #ff6b01;
+}
+
+.form-control.border-primary,
+.form-select.border-primary {
+  border-color: #ff6b01;
+}
+
+/* Adjusting input box size */
+.input-small {
+  width: 80%; /* Smaller width for input boxes */
+}
+
+/* Rounded image style */
+.img-fluid.rounded-circle {
+  border-radius: 50%; /* Make image circular */
+}
+
+/* Shadow effect for embossed look */
+.shadow-sm {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for embossed effect */
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  color: #ff6b01; /* Main theme color */
+}
+
+h3 {
+  color: #333; /* Darker color for contrast */
+}
+
+h2 {
+  color: #ff6b01; /* Main theme color for meal type headings */
+}
+
+.btn-primary {
+  background-color: #ff6b01; /* Main theme color */
+  border-color: #ff6b01; /* Button border color */
+}
+
+.img-fluid.rounded {
+  border-radius: 15px; /* Round corners for images */
+}
+
+/* Additional styles for better spacing */
+.my-5 {
+  margin-top: 3rem !important;
+  margin-bottom: 3rem !important;
+}
+
+.my-4 {
+  margin-top: 2rem !important;
+}
