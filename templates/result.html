@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f0f8ff; /* Light Blue */
+      }
+      .navbar {
+        background-color: #ff6b01; /* Primary Color */
+      }
+      .card {
+        border: none;
+        border-radius: 15px; /* Rounded corners for cards */
+        overflow: hidden; /* Ensures child elements respect border radius */
+        background-color: #d3d3d3; /* Grey background for cards */
+      }
+      .card-img-top {
+        border-radius: 15px 15px 0 0; /* Rounded corners for the top of the card */
+        height: 200px;
+        object-fit: cover;
+      }
+      .card-title {
+        font-weight: bold;
+      }
+      .bmi-display {
+        font-size: 1.25rem;
+        color: #ff6b01; /* Primary Color for BMI display */
+      }
+    </style>
+    <title>Nutrify - Meal Recommendations</title>
+  </head>
+  <body class="bg-white">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <img
+          class="navbar-brand"
+          src="{{ url_for('static', filename='logo.jpg') }}"
+          alt="Nutrify"
+          height="50px"
+          width="100px"
+        />
+        <div class="collapse navbar-collapse justify-content-end">
+          <div class="navbar-nav">
+            <a class="nav-link text-white" aria-current="page" href="/">Home</a>
+            <a class="nav-link text-white" href="#">About</a>
+            <a class="nav-link btn btn-secondary text-white" href="#">Log in</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container my-5">
+      <h3>Your Recommendations</h3>
+
+      <p class="bmi-display">Your BMI: {{ bmi}}</p>
+      <!-- Rounded BMI -->
+
+      {% for meal_type, meals in recommendations.items() %}
+      <h4>{{ meal_type.capitalize() }}</h4>
+      <div class="row">
+        {% for meal in meals %}
+        <div class="col-md-6 mb-4">
+          <!-- Adjust column width as needed -->
+          <div class="card">
+            <img
+              src="{{ meal.image_url }}"
+              alt="{{ meal.recipe_name }}"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <h5 class="card-title">{{ meal.recipe_name }}</h5>
+              <p class="card-text">Ingredients: {{ meal.ingredients_list }}</p>
+            </div>
+          </div>
+        </div>
+        <!-- End of column -->
+        {% endfor %}
+      </div>
+      <!-- End of row -->
+
+      {% if meals|length == 0 %}
+      <p>No recommendations available for this meal type.</p>
+      {% endif %} {% endfor %}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
